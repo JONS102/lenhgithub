@@ -1,0 +1,59 @@
+Dựa trên hình ảnh bạn cung cấp, các lệnh Git được thực thi lần lượt là:
+
+1. **`cd E:\CNTT\HK4\NMCPM\DOAN\english_learning_app`**  
+   - Đây là lệnh chuyển thư mục (change directory) trong Command Prompt của Windows, đưa bạn vào thư mục `english_learning_app` tại đường dẫn được chỉ định. Đây là thư mục chứa repository Git của bạn.
+
+2. **`git branch`**  
+   - Lệnh này hiển thị danh sách các nhánh trong repository cục bộ.  
+   - Kết quả cho thấy có hai nhánh: `main` (nhánh mặc định) và nhánh hiện tại được đánh dấu bằng dấu `*` (ban đầu là `main`).
+
+3. **`git checkout Pham_02`**  
+   - Lệnh này cố gắng chuyển sang nhánh có tên `Pham_02`.  
+   - Tuy nhiên, lệnh thất bại với lỗi:  
+     ```
+     error: pathspec 'Pham_02' did not match any file(s) known to git
+     ```
+     - Lý do: Nhánh `Pham_02` chưa tồn tại trong repository cục bộ, nên Git không thể tìm thấy nó.
+
+4. **`git checkout -b Pham_02`**  
+   - Lệnh này tạo một nhánh mới có tên `Pham_02` và chuyển sang nhánh đó ngay lập tức.  
+   - Kết quả: `Switched to a new branch 'Pham_02'`, nghĩa là bạn đã thành công tạo và chuyển sang nhánh `Pham_02`.
+
+5. **`git branch`**  
+   - Lệnh này lại hiển thị danh sách nhánh, và bây giờ nhánh `Pham_02` có dấu `*`, cho thấy bạn đang ở nhánh `Pham_02`, cùng với nhánh `main`.
+
+6. **`git status`**  
+   - Lệnh này hiển thị trạng thái hiện tại của repository.  
+   - Kết quả:  
+     - Bạn đang ở nhánh `Pham_02`.  
+     - Có các thay đổi chưa được staging (chưa thêm vào commit), bao gồm các file `.pyc` trong thư mục `backend/__pycache__` (như `config.cpython-312.pyc`, `models.cpython-312.pyc`, `env.cpython-312.pyc`).  
+     - Git gợi ý bạn có thể dùng `git add` để chuẩn bị commit hoặc `git restore` để loại bỏ thay đổi.
+
+### Tóm tắt
+- Bạn đã vào thư mục repository, kiểm tra nhánh, tạo và chuyển sang nhánh mới `Pham_02`, rồi kiểm tra trạng thái. Hiện tại, nhánh `Pham_02` có các thay đổi cục bộ chưa commit, chủ yếu là file `.pyc` (file tạm của Python).
+- Để tiếp tục, bạn có thể:
+  - Bỏ qua file `.pyc` bằng cách thêm vào `.gitignore` (như `__pycache__/` và `*.pyc`).
+  - Hoặc tạm cất (`git stash`) hoặc commit (`git add .` và `git commit`) nếu muốn giữ thay đổi.
+
+Chúc bạn thành công!
+
+git add . 
+or 
+git add ten_file, 
+git commit -m "Thông điệp mô tả thay đổi", 
+git push. nếu nhánh mới tạo lần đầu thì: 
+git push -u origin ten-nhanh
+…or create a new repository on the command line
+echo "# lenhgithub" >> README.md
+
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/JONS102/lenhgithub.git
+git push -u origin main
+
+git remote add origin https://github.com/JONS102/lenhgithub.git
+git branch -M main
+git push -u origin main
